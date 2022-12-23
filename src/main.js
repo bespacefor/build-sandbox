@@ -1,9 +1,11 @@
 class App {
 
-    run = (name = 'World') => {
+    run = async (name = 'World') => {
         console.log(`Hello ${name}`);
     };
 }
 
 const app = new App();
-app.run();
+app.run()
+    .then((e) = console.log('done'))
+    .catch((e) = console.log('error'));
