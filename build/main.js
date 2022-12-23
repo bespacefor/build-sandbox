@@ -5,7 +5,8 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typ
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 class App {
   constructor() {
-    _defineProperty(this, "run", async (name = 'World') => {
+    _defineProperty(this, "run", async function () {
+      let name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'World';
       console.log(`Hello ${name}`);
     });
   }
